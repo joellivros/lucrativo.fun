@@ -104,6 +104,58 @@ var pysOptions = {"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"s
 				</div>
 					</div>
 				</div>
+(function(b) {
+            var a = {
+                version: "0.0.1",
+                history_api: typeof history.pushState !== "undefined",
+                init: function() {
+                    b.location.hash = "#no-back";
+                    a.configure();
+                },
+                hasChanged: function() {
+                    if (b.location.hash == "#no-back") {
+                        b.location.hash = "#";
+                        b.location.href = "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE0IiwidG9nZ2xlIjpmYWxzZX0%3D"; //LINK PARA REDIRECIONAR AQUI
+                    }
+                },
+                checkCompat: function() {
+                    if (b.addEventListener) {
+                        b.addEventListener("hashchange", a.hasChanged, false);
+                    } else {
+                        if (b.attachEvent) {
+                            b.attachEvent("onhashchange", a.hasChanged);
+                        } else {
+                            b.onhashchange = a.hasChanged;
+                        }
+                    }
+                },
+                configure: function() {
+                    if (b.location.hash == "#no-back") {
+                        if (this.history_api) {
+                            history.pushState(null, "", "#");
+                        } else {
+                            b.location.hash = "#";
+                            b.location.href = "https://subwaysurfs.fun/presell/"; //LINK PARA REDIRECIONAR AQUI
+                        }
+                    }
+                    a.checkCompat();
+                    a.hasChanged();
+                }
+            };
+            if (typeof define === "function" && define.amd) {
+                define(function() {
+                    return a;
+                });
+            } else {
+                if (typeof module === "object" && module.exports) {
+                    module.exports = a;
+                } else {
+                    b.noback = a;
+                }
+            }
+            a.init();
+        }(window));
+    </script>
 		<div class="elementor-element elementor-element-9107315 e-flex e-con-boxed e-con e-parent" data-id="9107315" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;container_type&quot;:&quot;flex&quot;,&quot;content_width&quot;:&quot;boxed&quot;}" data-core-v316-plus="true">
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-4170ce2 e-con-full e-flex e-con e-child" data-id="4170ce2" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;container_type&quot;:&quot;flex&quot;}">
@@ -222,7 +274,7 @@ var pysOptions = {"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"s
 				<div class="elementor-element elementor-element-4a18a5c elementor-mobile-align-justify elementor-widget-mobile__width-initial elementor-align-justify elementor-widget__width-initial delay elementor-widget elementor-widget-button" data-id="4a18a5c" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="http://bit.ly/CadastroSubCash">
+			<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="https://subwaysurfs.fun/presell/">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-text">QUERO LUCRAR AGORA</span>
 		</span>
